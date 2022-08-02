@@ -14,8 +14,13 @@
     ],
     'data': [
         "security/ir.model.access.csv",
+        "data/data.xml",
+        # "data/slide_data_v12.xml",
+        # "data/slide_data_v13.xml",
+        # "data/slide_data_v14.xml",
+        # "data/slide_data_v12_2.xml",
         "views/patient.xml",
-        "views/sale.xml"
+        "views/sale.xml",
     ],
     # 'qweb': ['static/src/xml/*.xml'],
     'installable': True,
