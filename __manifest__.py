@@ -20,6 +20,7 @@
         # "data/slide_data_v14.xml",
         # "data/slide_data_v12_2.xml",
         "views/patient_view.xml",
+        "views/patient_gender_view.xml",
         "views/kids_view.xml",
         "views/sale.xml",
     ],
