@@ -133,13 +133,19 @@
             </field>
         </record>
 
-        <menuitem id="hospital_root"
+        <menuitem id="menu_hospital_root"
                   name="Hospital"
                   sequence="-10"/>
-        <menuitem id="hospital_patient_root"
+
+        <menuitem id="menu_patient_root"
+                  name="Patient"
+                  sequence="10"
+                  parent="menu_hospital_root"/>
+
+        <menuitem id="menu_patient"
                   name="Patient"
                   sequence="10"
                   action="action_hospital_patient"
-                  parent="hospital_root"/>
+                  parent="menu_patient_root"/>
     </data>
 </odoo>
