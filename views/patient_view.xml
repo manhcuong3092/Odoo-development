@@ -63,12 +63,14 @@
                 <form>
                     <header>
                         <button id="button_confirm" name="action_confirm" string="Confirm" states="draft"
+                                confirm="Are you sure that you need to confirm?"
                                 class="btn-primary" type="object"/>
                         <button id="button_done" name="action_done" string="Mark As Done" states="confirm"
                                 class="btn-primary" type="object"/>
                         <button id="button_draft" name="action_draft" string="Set To Draft" states="cancel"
                                 class="btn-primary" type="object"/>
                         <button id="button_cancel" name="action_cancel" string="Cancel" states="draft,done,confirm"
+                                confirm="Are you sure that you need to cancel?"
                                 type="object"/>
                         <field name="state" widget="statusbar" statusbar_visible="draft,done,confirm"/>
                     </header>
@@ -85,7 +87,7 @@
                                 <field name="age"/>
                             </group>
                             <group>
-                                <field name="gender"/>
+                                <field name="gender" invisible="context.get('hide_gender')"/>
                                 <field name="note"/>
                             </group>
                         </group>
