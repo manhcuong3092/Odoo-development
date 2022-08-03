@@ -4,7 +4,7 @@
         <field name="name">hospital.appointment.tree</field>
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree multi_edit="1">
                 <header>
                     <button name="action_done" string="Mark As Done" class="btn-primary"
                             type="object"/>
