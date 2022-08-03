@@ -52,3 +52,12 @@ class HospitalPatient(models.Model):
             vals['reference'] = self.env['ir.sequence'].next_by_code('hospital.patient') or _('New')
         res = super(HospitalPatient, self).create(vals)
         return res
+
+    @api.model
+    def default_get(self, fields):
+        res = super(HospitalPatient, self).default_get(fields)
+        # not recommend override
+        res['gender'] = 'female'
+        # res['age'] = 50
+        # res['note'] = 'Test Default Get Method'
+        return res
