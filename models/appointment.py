@@ -4,6 +4,7 @@ class HospitaAppointment(models.Model):
     _name = "hospital.appointment"
     _inherit = ["mail.thread", 'mail.activity.mixin']
     _description = "Hospital Appointment"
+    _order = "doctor_id,name desc,age"
 
     name = fields.Char('Order reference', require=True, copy=False, readonly=True,
                             default=lambda self:_('New'))
@@ -20,7 +21,7 @@ class HospitaAppointment(models.Model):
                               required=True, string='Gender', default='male', tracking=True)
 
     patient_id = fields.Many2one('hospital.patient', string='Patient', require=True)
-    age = fields.Integer('Age', related='patient_id.age', required=True, tracking=True)
+    age = fields.Integer('Age', related='patient_id.age', required=True, tracking=True, store=True)
     doctor_id = fields.Many2one('hospital.doctor', string='Doctor', required=True)
 
     def action_confirm(self):

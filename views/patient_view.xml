@@ -5,9 +5,10 @@
             <field name="name">hospital.patient.kanban</field>
             <field name="model">hospital.patient</field>
             <field name="arch" type="xml">
-                <kanban>
+                <kanban default_order="id asc">
                     <field name="id"/>
                     <field name="name"/>
+                    <field name="reference"/>
                     <field name="age"/>
                     <field name="gender"/>
                     <field name="note"/>
@@ -16,6 +17,10 @@
                             <div t-attf-class="oe_kanban_global_click">
                                 <div class="oe_kanban_details">
                                     <ul>
+                                        <li>
+                                            ID:
+                                            <field name="reference"/>
+                                        </li>
                                         <li>
                                             Name:
                                             <field name="name"/>
@@ -27,10 +32,6 @@
                                         <li>
                                             Gender:
                                             <field name="gender"/>
-                                        </li>
-                                        <li>
-                                            Note:
-                                            <field name="note"/>
                                         </li>
                                     </ul>
                                 </div>
@@ -46,7 +47,9 @@
             <field name="model">hospital.patient</field>
             <field name="arch" type="xml">
                 <tree>
+                    <field name="id"/>
                     <field name="name"/>
+                    <field name="reference"/>
                     <field name="responsible_id"/>
                     <field name="appointment_count"/>
                     <field name="age"/>
