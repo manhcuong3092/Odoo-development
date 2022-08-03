@@ -3,7 +3,7 @@
     'summary': """Hospital Manager""",
     'description': """test odoo""",
     'sequence': "-10",
-    'author': "Dung",
+    'author': "Cuong",
     'category': 'Uncategorized',
     'version': '0.1',
     'depends': [

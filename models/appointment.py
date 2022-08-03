@@ -21,6 +21,7 @@ class HospitaAppointment(models.Model):
 
     patient_id = fields.Many2one('hospital.patient', string='Patient', require=True)
     age = fields.Integer('Age', related='patient_id.age', required=True, tracking=True)
+    doctor_id = fields.Many2one('hospital.doctor', string='Doctor', required=True)
 
     def action_confirm(self):
         self.state = 'confirm'
@@ -40,7 +41,7 @@ class HospitaAppointment(models.Model):
             vals['note'] = 'New Patient'
         if vals.get('name', _('New')) == _('New'):
             vals['name'] = self.env['ir.sequence'].next_by_code('hospital.appointment') or _('New')
-        res = super(HospitalPatient, self).create(vals)
+        res = super(HospitaAppointment, self).create(vals)
         return res
 
     @api.onchange('patient_id')
