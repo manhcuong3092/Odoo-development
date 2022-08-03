@@ -1,6 +1,6 @@
 from odoo import api, fields, models, _
 
-class HospitalPatient(models.Model):
+class HospitaAppointment(models.Model):
     _name = "hospital.appointment"
     _inherit = ["mail.thread", 'mail.activity.mixin']
     _description = "Hospital Appointment"
