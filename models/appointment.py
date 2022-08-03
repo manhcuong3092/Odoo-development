@@ -1,5 +1,6 @@
 from odoo import api, fields, models, _
 
+
 class HospitaAppointment(models.Model):
     _name = "hospital.appointment"
     _inherit = ["mail.thread", 'mail.activity.mixin']
@@ -7,7 +8,7 @@ class HospitaAppointment(models.Model):
     _order = "doctor_id,name desc,age"
 
     name = fields.Char('Order reference', require=True, copy=False, readonly=True,
-                            default=lambda self:_('New'))
+                       default=lambda self: _('New'))
     note = fields.Text(string='Description')
     date_appointment = fields.Date(string='Date')
     date_checkup = fields.Datetime(string='Check up time')
@@ -21,8 +22,11 @@ class HospitaAppointment(models.Model):
                               required=True, string='Gender', default='male', tracking=True)
 
     patient_id = fields.Many2one('hospital.patient', string='Patient', require=True)
-    age = fields.Integer('Age', related='patient_id.age', required=True, tracking=True, store=True)
+    age = fields.Integer('Age', related='patient_id.age', tracking=True, store=True)
     doctor_id = fields.Many2one('hospital.doctor', string='Doctor', required=True)
+    prescription = fields.Text(string='Prescription')
+    prescription_line_ids = fields.One2many('appointment.prescription.lines', 'appointment_id',
+                                            string='Prescription Lines')
 
     def action_confirm(self):
         self.state = 'confirm'
@@ -55,3 +59,12 @@ class HospitaAppointment(models.Model):
         else:
             self.gender = ''
             self.note = ''
+
+
+class AppointmentPrescriptionLines(models.Model):
+    _name = "appointment.prescription.lines"
+    _description = "Appointment Prescription Lines"
+
+    name = fields.Char(string='Medicine', required=True)
+    qty = fields.Integer(string='Quantity')
+    appointment_id = fields.Many2one('hospital.appointment', string='Appointment')

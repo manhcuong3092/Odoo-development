@@ -56,9 +56,34 @@
                             <field name="doctor_id"/>
                             <field name="date_appointment"/>
                             <field name="date_checkup"/>
-                            <field name="note"/>
                         </group>
                     </group>
+                    <notebook>
+                        <page string="Doctor Prescription" name="doctor_prescription">
+                            <group>
+                                <field name="prescription"/>
+                            </group>
+                        </page>
+                        <page string="Medicine" name="medicine">
+                            <field name="prescription_line_ids">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="qty"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <field name="name"/>
+                                    </group>
+                                    <group>
+                                        <field name="qty"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Other Info" name="other_info">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids"/>
