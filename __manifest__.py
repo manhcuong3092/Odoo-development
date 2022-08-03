@@ -23,6 +23,7 @@
         "views/patient_gender_view.xml",
         "views/kids_view.xml",
         "views/sale.xml",
+        "views/appointment_view.xml",
     ],
     # 'qweb': ['static/src/xml/*.xml'],
     'installable': True,
